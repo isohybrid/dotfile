@@ -1,0 +1,23 @@
+let mapleader = ","
+
+" vim sessions
+let g:session_autosave = 'yes'
+
+" easytag
+set tags=./.tags;,~/.vim/tags/*,~/.vimtags
+let g:easytags_dynamic_files = 1
+let g:easytags_by_filetype = '~/.vim/tags'
+let g:easytags_include_members = 1
+
+" pyref
+let g:pyref_python = '/usr/share/doc/python/html'
+
+" pymode
+" Disable pylint code plugin
+let g:pymode_lint = 0
+" Load show documentation plugin
+let g:pymode_doc = 1
+" Key for show python documentation
+let g:pymode_doc_key = '<leader>pd'
+" Key for set/unset breakpoint
+let g:pymode_breakpoint_key = '<leader>pb'

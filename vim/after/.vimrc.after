@@ -1,0 +1,48 @@
+" ================ General Config ====================
+" set statusline+=%{fugitive#statusline()}
+
+" leader-* Highlight all occurrences of current word (like '*' but without moving)
+" http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
+nnoremap <leader>* :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+
+" ================ Completion =======================
+set wildmode=list:longest,list:full
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore+=.git,*.pyc
+set wildignore+=eggs/**
+set wildignore+=*.egg-info/**
+
+" ================ Scrolling ========================
+set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
+
+" ==== NERD tree
+" Cmd-Shift-N for nerd tree
+nmap <leader>n :NERDTreeToggle<CR>
+" Open the project tree and expose current file in the nerdtree with Ctrl-\
+nnoremap <silent> <C-\> :NERDTreeFind<CR>
+
+" Command-/ to toggle comments
+map <leader>/ :TComment<CR>
+imap <leader>/ <Esc>:TComment<CR>i
+
+" Astyle
+autocmd BufNewFile,BufRead *.cpp,*.cc,*.h,*.hpp,*.c set formatprg=astyle\ -A3s2Ym0pfHUxdjck3W3
+nmap <leader>af ggVG=
+
+" Close the buffer but keep the window
+nmap <C-W>! :Kwbd<CR>
+
+" Make C-W safe in the insert mode
+imap <C-W> <C-O><C-W>
+
+" Fix the error for completion
+set completeopt-=preview
+
+" See tag in preview
+noremap <C-]> <Esc>:exe "ptjump " . expand("<cword>")<Esc>
+
+" Cscope
+" Rebuild cscope db
+map <leader>fb :CscopeGen()<CR>

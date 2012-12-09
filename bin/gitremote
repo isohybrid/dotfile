@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+BRANCH=${1-master}
+CMD="git fetch upstream"
+echo $CMD
+eval $CMD
+
+CMD="git merge upstream/$BRANCH"
+echo $CMD
+eval $CMD
